@@ -772,19 +772,19 @@ class Game:
         
     def draw_hud(self, surface):
         # Draw score
-        score_text = self.font.render(f"Score: {self.score}", True, WHITE)
+        score_text = self.font.render(f"Score: {self.score}", True, BLACK)
         surface.blit(score_text, (10, 10))
         
         # Draw high score
-        high_score_text = self.small_font.render(f"High Score: {self.high_score}", True, WHITE)
+        high_score_text = self.small_font.render(f"High Score: {self.high_score}", True, BLACK)
         surface.blit(high_score_text, (10, 50))
         
         # Draw speed
-        speed_text = self.font.render(f"Speed: {self.airplane.speed:.1f}", True, WHITE)
+        speed_text = self.font.render(f"Speed: {self.airplane.speed:.1f}", True, BLACK)
         surface.blit(speed_text, (10, 80))
         
         # Draw wave info
-        wave_text = self.font.render(f"Wave: {self.current_wave}/{self.max_waves}", True, WHITE)
+        wave_text = self.font.render(f"Wave: {self.current_wave}/{self.max_waves}", True, BLACK)
         surface.blit(wave_text, (SCREEN_WIDTH // 2 - 60, 10))
         
         # Draw wave timer
@@ -792,26 +792,26 @@ class Game:
             elapsed = pygame.time.get_ticks() - self.wave_start_time
             remaining = max(0, self.wave_duration - elapsed)
             seconds = remaining // 1000
-            timer_text = self.font.render(f"Time: {seconds}s", True, WHITE)
+            timer_text = self.font.render(f"Time: {seconds}s", True, BLACK)
             surface.blit(timer_text, (SCREEN_WIDTH // 2 - 40, 50))
         
         # Draw health bar
         pygame.draw.rect(surface, BLACK, (SCREEN_WIDTH - 210, 10, 200, 20), 1)
         health_width = int((self.airplane.health / 100) * 198)
         pygame.draw.rect(surface, (255, 0, 0), (SCREEN_WIDTH - 209, 11, health_width, 18))
-        health_text = self.small_font.render("Health", True, WHITE)
+        health_text = self.small_font.render("Health", True, BLACK)
         surface.blit(health_text, (SCREEN_WIDTH - 270, 10))
         
         # Draw fuel bar
         pygame.draw.rect(surface, BLACK, (SCREEN_WIDTH - 210, 40, 200, 20), 1)
         fuel_width = int((self.airplane.fuel / 100) * 198)
         pygame.draw.rect(surface, (255, 215, 0), (SCREEN_WIDTH - 209, 41, fuel_width, 18))
-        fuel_text = self.small_font.render("Fuel", True, WHITE)
+        fuel_text = self.small_font.render("Fuel", True, BLACK)
         surface.blit(fuel_text, (SCREEN_WIDTH - 270, 40))
         
         # Draw enemy count in wave 5
         if self.current_wave == 5:
-            enemy_text = self.small_font.render(f"Enemies: {len(self.enemies)}", True, WHITE)
+            enemy_text = self.small_font.render(f"Enemies: {len(self.enemies)}", True, BLACK)
             surface.blit(enemy_text, (SCREEN_WIDTH // 2 - 40, 90))
     
     def draw_wave_transition(self, surface):
